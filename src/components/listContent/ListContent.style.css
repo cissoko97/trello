@@ -1,0 +1,76 @@
+:root{
+    --padding-card : 5px;
+}
+
+.listContent{
+    min-width: 272px;
+    background: #ebecf0;
+    display: flex;
+    flex-direction: column;
+    margin: 0 4px;
+    height: fit-content;
+    border-radius: 3px;
+    max-height: 100%;
+}
+
+.listContent .listContent__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding :var(--padding-card);
+}
+
+.listContent .listContent__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 100%;
+    padding: var(--padding-card);
+}
+
+.listContent .listContent__footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--padding-card);
+}
+
+.listContent .listContent__header .title{
+    float: left;
+    width: 100%;
+}
+
+.listContent .listContent__footer .title{
+    float: left;
+    width: 100%;
+}
+
+.listContent .listContent__header .title,
+.listContent .listContent__header .icon,
+.listContent .listContent__footer .title,
+.listContent .listContent__footer .icon 
+{
+    background: transparent;
+    cursor: pointer;
+    color: #5e6c84;
+    padding: 0 var(--padding-card);
+    transition: all 0.3s;
+}
+
+.listContent .listContent__header .title{
+    cursor: initial;
+}
+
+.listContent .listContent__header .icon:hover,
+.listContent .listContent__footer .title:hover,
+.listContent .listContent__footer .icon:hover 
+{
+    background-color: rgba(9,30,66,.08);
+    color: #172b4d;
+    padding: 0 6px;
+    border-radius: 3px;
+}

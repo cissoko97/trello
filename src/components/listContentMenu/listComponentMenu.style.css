@@ -1,0 +1,10 @@
+.ListContentMenu{
+    background-color: antiquewhite;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 240px;
+    margin-top: 20px;
+    height: 70px;
+}
