@@ -1,10 +1,59 @@
 .ListContentMenu{
-    background-color: antiquewhite;
+    font-size: 14px;
+    background-color: whitesmoke;
     position: absolute;
+    width: 300px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin-left: 240px;
-    margin-top: 20px;
-    height: 70px;
+    color: #5e6c84;
+    border-radius: 5px;
+    margin-left: 235px;
+    margin-top: 22px;
+    min-height: 70px;
+    box-shadow: 4px 4px 3px rgba(9,30,66,.25);
+    transition: all 0.3s;
+}
+
+.menu__item{
+    width: 100%;
+    padding: var(--padding-card);
+    margin: 0;
+}
+
+.menu__item:first-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.menu__item .menu__times{
+    animation: none;
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.menu__item .menu__times:hover{
+    background-color: rgba(9,30,66,.08);
+    border-radius: 3px;
+}
+
+.menu__item .menu__title{
+    width: 100%;
+    text-align: center;
+    padding: 0 5px;
+}
+    
+.menu__separation{
+    width: 100%;
+    padding: 0 var(--padding-card);
+    /* margin: 0; */
+}
+
+hr{
+    /* margin: 0; */
+    background-color: rgba(9,30,66,.13);
 }

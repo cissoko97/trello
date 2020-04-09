@@ -1,0 +1,21 @@
+/* :root{
+        
+} */
+
+.projet__grid{
+    width: 1000px;
+    /* min-height: 300px; */
+    height: max-content;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0.5px solid rgba(0, 0, 0, 0.137);
+    background-color: transparent; 
+    box-shadow: 3px 3px 5px 0 rgba(9,30,66,.25);
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}

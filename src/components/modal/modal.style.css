@@ -1,0 +1,38 @@
+.card__modal{
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 250px;
+    bottom: 250px;
+    background: red;
+    border-radius: 3px;
+}
+
+.modal__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.modal__title{
+    width: 100%;
+    margin: auto;
+    height: 30px;
+    /* line-height: 30px; */
+    padding: 5px;
+}
+
+.modal__close{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    /* line-height: 30px; */
+    text-align: center;
+    padding: 5px;
+}
+
+.modal__close:hover{
+    border-radius: 50%;
+    background: rgba(179, 176, 176, 0.521);
+}

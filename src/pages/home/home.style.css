@@ -1,0 +1,17 @@
+:root {
+    --board_padding: 5px;
+  }
+
+.board {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    padding: var(--board_padding);
+    /* align-items: flex-start;  */
+    top: 50px;
+    bottom: 0;
+    width: 100%;
+    overflow-x: auto;
+    background-color: #dddddd;
+}
+  

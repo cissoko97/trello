@@ -2,6 +2,9 @@
     --content : space-between;
 }
 
+.card{
+    padding: 2px 0;
+}
 .cardItem{
     margin-top: 5px;
     width: 100%;
@@ -19,9 +22,11 @@
 }
 
 .cardItem .cardItem__ticket{
-    display: flex;
-    flex-direction: row;
-    justify-content: var(--content);
+    max-width: 260px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
 }
 
 .cardItem .cardItem__text{
