@@ -18,7 +18,7 @@ const Txt = styled.textarea`
 
 const TextArea = props => {
 
-    return <Txt autoFocus name={props.name} placeholder={props.placeholder} onChange={(e) => { props.onChange(e) }}></Txt>
+    return <Txt autoFocus value={props.value} name={props.name} placeholder={props.placeholder} onChange={(e) => { props.onChange(e) }}></Txt>
 }
 
 export default TextArea;

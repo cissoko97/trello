@@ -8,8 +8,12 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className="header">Bonjour depuis le menu</div>
+            <div className="header">{this.props.children}</div>
         )
+    }
+
+    componentDidMount() {
+        console.log(this.props);
     }
 
 }

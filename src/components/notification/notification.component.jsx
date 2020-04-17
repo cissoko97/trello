@@ -4,12 +4,16 @@ import ee from "event-emitter";
 const Container = styled.div`
     background-color: ${props => props.back} ;
     color:white;
-    max-width:210px;
+    text-align:center;
+    max-width: 250px;
+    min-width: 210px;
     padding:5px;
     position:fixed;
+    border-radius:3px;
     top:${ props => props.top}px;
     right: ${props => props.right}px;
     transition: all 0.5s ease;
+    box-shadow: 3px 3px 5px 0 rgba(9,30,66,.25);
     z-index:999;
 `
 const emitter = new ee();
@@ -21,16 +25,16 @@ export const notify = (msg, back) => {
 
 class Notification extends React.Component {
     state = {
-        top: -60,
+        top: -200,
         right: 16,
         msg: null,
         back: "rgba(0, 0, 0, 0.19)"
     }
+
+    timeOut = null;
+    
     constructor(props) {
         super(props)
-
-        this.timeOut = null;
-
         emitter.on('notification', (msg, back) => {
             this.onShow(msg, back)
         })
@@ -44,7 +48,7 @@ class Notification extends React.Component {
         })
         if (this.timeOut) {
             clearTimeout(this.timeOut);
-            this.setState({ top: -60 },
+            this.setState({ top: -200 },
                 () => {
                     this.timeOut = setTimeout(() => {
                         this.showNotification();
@@ -61,7 +65,7 @@ class Notification extends React.Component {
         }, () => {
             this.timeOut = setTimeout(() => {
                 this.setState({
-                    top: -60,
+                    top: -200,
                     msg: 'notification'
                 })
             }, 8000)

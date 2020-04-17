@@ -15,7 +15,7 @@ const PC = styled.div`
 `
 
 const ProjectCard = (props) => {
-    return (<PC onClick={() => props.onClick(props.data.id)}>
+    return (<PC onClick={() => props.onClick(props.data)}>
         {props.children}
     </PC>)
 }

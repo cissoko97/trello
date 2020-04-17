@@ -36,3 +36,14 @@
     border-radius: 50%;
     background: rgba(179, 176, 176, 0.521);
 }
+
+
+.modal__footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}

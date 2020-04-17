@@ -25,7 +25,7 @@ class LoginAndRegister extends React.Component {
                         <InputField onChange={this.onChange} type="text" name="loginEmail" placeholder="Enter Your Email" />
                         <InputField onChange={this.onChange} type="password" name="loginPassword" placeholder="Enter Your Password" />
                     </div>
-                    <Button margin="auto" w="50%" raduis="0" back='#5aac44' title="Login" onClick={this.logIn} />
+                    <Button disabled={this.state.progress} margin="auto" w="50%" raduis="0" back='#5aac44' title="Login" onClick={this.logIn} />
                 </div>
                 <div className="signup">
                     <h3 className="login__title">Register Or SignUp</h3>
@@ -36,13 +36,16 @@ class LoginAndRegister extends React.Component {
                         <InputField onChange={this.onChange} type="password" name="signupConfPassword" placeholder="Enter Your Password" />
                         <InputField onChange={this.onChange} type="text" name="signupPhone" placeholder="Enter Your Phone number" />
                     </div>
-                    <Button margin="auto" w="50%" raduis="0" back='#5aac44' title="Sign In" onClick={this.signUp} />
+                    <Button disabled={this.state.progress} margin="auto" w="50%" raduis="0" back='#5aac44' title="Sign In" onClick={this.signUp} />
                 </div>
             </div>
         );
     }
 
     signUp = () => {
+        this.setState({
+            progress: true
+        })
         console.log("Bonjour", `${routes.signup}`);
         let body = {
             name: this.state.signupName,
@@ -53,8 +56,13 @@ class LoginAndRegister extends React.Component {
         }
         axios.post(`${routes.signup}`, body).then(res => {
             console.log(res.data)
+            setAuthorizationHeader(res.data);
+            this.props.history.push('/projet');
         }).catch(err => {
             console.log(err.response.data);
+            this.setState({
+                progress: false
+            })
             notify(JSON.stringify(err.response.data), "#c10a33")
         });
     }
@@ -64,6 +72,9 @@ class LoginAndRegister extends React.Component {
     }
 
     logIn = () => {
+        this.setState({
+            progress: true
+        })
         let body = {
             email: this.state.loginEmail,
             password: this.state.loginPassword
@@ -71,11 +82,14 @@ class LoginAndRegister extends React.Component {
         axios
             .post(`${routes.login}`, body)
             .then((res) => {
-                setAuthorizationHeader(res.data.token);
+                setAuthorizationHeader(res.data);
                 this.props.history.push('/projet');
             })
             .catch((err) => {
                 console.log(err.response.data)
+                this.setState({
+                    progress: false
+                })
                 notify(JSON.stringify(err.response.data), "#c10a33")
             });
     }

@@ -21,9 +21,9 @@ const Addlist = (props) => {
                 <Card
                     width={props.width ? props.width : '272px'}
                 >
-                    <Input placeholder={placeholder} change={props.onChange} name="title">
+                    <Input placeholder={placeholder} change={props.onChange} name="title" >
                     </Input>
-                    <Button color="#FFF" font="14px" w="50%" raduis="3px" back='#5aac44' onClick={(e) => props.onClick(e)} >
+                    <Button disabled={props.disabled} color="#FFF" font="14px" w="50%" raduis="3px" back='#5aac44' onClick={(e) => props.onClick(e)} >
                         {props.title === "projet" ? "Ajoutez un projet" : "Ajoutez une Liste"}
                     </Button>
                     <Button font="14px" w="auto" raduis="0" back='transparent' onClick={(e) => props.addList(e)} ><FontAwesomeIcon icon={faTimes} /></Button>

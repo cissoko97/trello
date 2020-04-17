@@ -12,12 +12,12 @@ const Tck = styled.span`
     padding-left:2px;
     text-align:left;
     margin: 0 4px 0 0;
-    background-color: tomato;
+    background-color: ${props => props.color};
 `
 
 const Ticket = (props) => {
     return (
-        <Tck className="btn" onClick={(e) => {props.onClick(e)}}>
+        <Tck className="btn" color={props.color} onClick={(e) => { props.onClick(e) }}>
             {props.status ?
                 props.label : null
             }

@@ -1,32 +1,20 @@
 import React from "react";
 import './modal.style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faAlignRight } from "@fortawesome/free-solid-svg-icons";
 import Modal from 'react-modal';
+
+
 Modal.setAppElement('#root');
 
-// class Modal extends React.Component {
-//     constructor(props) {
-//         super(props)
-//     }
-
-//     render() {
-//         if (!this.props.show) {
-//             return null;
-//         }
-//         return (<div className="card__modal"> {this.props.children} {this.props.data}
-//             <button onClick={e => this.onClose()}>Close</button></div>);
-//     }
-
-//     onClose = () => {
-//         this.props.hideModal();
-//     }
-// }
-// }shouldCloseOnOverlayClick={true} onRequestClose={() => { props.hideModal() }}
-// }shouldCloseOnOverlayClick={true} onRequestClose={() => { props.hideModal() }}
-
-
 const MyModal = (props) => {
+    var project = JSON.parse(localStorage.getItem('project'));
+    var color = Object.keys(project.ticket);
+    let valeur = [];
+    color.forEach(element => {
+        valeur.push(project.ticket[element][0])
+    });
+
     return (
         <Modal isOpen={props.isOpen}
             onRequestClose={() => { props.hideModal() }}
@@ -40,13 +28,13 @@ const MyModal = (props) => {
 
             }}>
             <div className="modal__header">
-                <div className="modal__title">Titre</div>
+                <div className="modal__title">{props.data.label}</div>
                 <div onClick={() => props.hideModal()} className="modal__close">
                     <FontAwesomeIcon icon={faTimes} />
                 </div>
             </div>
-            <p>Modal title</p>
-            <p>{props.data}</p>
+            {props.children}
+
         </Modal>
     )
 }

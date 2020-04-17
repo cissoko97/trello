@@ -1,4 +1,10 @@
 .header{
     height: 50px;
-    background-color: grey;
+    background-color: rgb(167, 160, 160);
+    line-height: 50px;
+    padding: 0 10px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

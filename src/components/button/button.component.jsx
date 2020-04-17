@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
 // import './button.style.css'
 
 
@@ -23,8 +25,10 @@ const Btn = styled.button`
 
 
 const Button = (props) => {
+    let dis = props.disabled ? props.disabled : false;
     return (
         <Btn
+            disabled={dis}
             color={props.color ? props.color : "#000"}
             margin={props.margin}
             hover={props.hover ? props.hover : null}
@@ -33,6 +37,7 @@ const Button = (props) => {
             raduis={props.raduis}
             onClick={(e) => props.onClick(e)}
             font={props.font ? props.font : "18px"}>
+            {props.disabled ? <FontAwesomeIcon className="fa-spin" icon={faSyncAlt} /> : null}
             {props.children ?
                 props.children : null}
             {props.title}
