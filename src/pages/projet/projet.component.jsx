@@ -12,6 +12,7 @@ import * as color from "../../utils/notification";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faDoorOpen } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../components/button/button.component";
+import Input from "../../components/inputText/input.component";
 const routes = require('../../utils/apiRoute');
 
 
@@ -42,6 +43,7 @@ class Projet extends React.Component {
                     </Button>
                 </Header>
                 <Notification></Notification>
+                <div className="search__bar"><Input placeholder={'Search'} change={this.Onfilter} name="search_title" /></div>
                 <div className="projet__grid">
                     {listProjet}
                     <Addlist disabled={this.state.progress} width="100%" title="projet" onClick={this.addProjet} onChange={this.newListInput} active={this.state.active} addList={this.toggleActive}></Addlist>
@@ -153,6 +155,14 @@ class Projet extends React.Component {
 
     logOut = () => {
         auth.logOut(this.props.history)
+    }
+
+    Onfilter = (e) => {
+        let title = e.target.value.toLowerCase();
+        let projects = JSON.parse(localStorage.getItem('listProject')).filter((value) => value.name.toLowerCase().includes(title))
+        this.setState({
+            projects
+        })
     }
 }
 

@@ -161,7 +161,6 @@ class Home extends React.Component {
 
             let finalStateIndex;
             stateEnd = states.slice().find((value, index) => { finalStateIndex = index; return (value.id === finalState) });
-            let initStateIndex;
             // let stateInit = states.slice().find((value, index) => { initStateIndex = index; return (value.id === stateInitId) });
             // id.stateID = finalState;
             //stateInit.tasks.splice(pos, 1)
@@ -303,6 +302,7 @@ class Home extends React.Component {
     }
 
     fecthState = () => {
+        let project = JSON.parse(localStorage.getItem("project"));
         axios
             .get(`${apiRoute.state}/${this.props.match.params.id}`)
             .then(res => {
@@ -311,6 +311,8 @@ class Home extends React.Component {
                     states: res.data,
                     maxIndex: res.data.length
                 }, () => {
+                    project.states = res.data;
+                    localStorage.setItem("project" , JSON.stringify(project , null , 4))
                     console.log('fetch state project with success')
                 })
             })

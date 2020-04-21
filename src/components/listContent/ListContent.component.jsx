@@ -63,10 +63,10 @@ class ListContent extends Component {
     }
 
 
-    componentDidMount() {
+    async componentDidMount() {
         var id = this.props.data.id;
-        axios.
-            get(`${route.tasks}/${this.props.data.id}`)
+        await axios
+            .get(`${route.tasks}/${this.props.data.id}`)
             .then(res => {
                 console.log(this.props.index, res.data)
                 this.props.fetchState(id, res.data, this.props.index)
@@ -78,7 +78,7 @@ class ListContent extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         let maxIndex = this.props.data.tasks ? this.props.data.tasks.length : 0;
         nextState.maxIndex = maxIndex;
-        return nextProps.data == this.props.data;
+        return nextProps.data ===  this.props.data;
     }
     // componentDidUpdate() {
     //     if (this.props.data.tasks) {

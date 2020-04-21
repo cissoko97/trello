@@ -17,6 +17,7 @@
 * For a state create a task  
 * update task description
 * delete task
+* drag and drop tasks between different project tastes
 
 ## run follow command to start App
 ```

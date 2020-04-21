@@ -1,7 +1,7 @@
 import React from "react";
 import './modal.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faAlignRight } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Modal from 'react-modal';
 
 
@@ -20,8 +20,14 @@ const MyModal = (props) => {
             onRequestClose={() => { props.hideModal() }}
             shouldCloseOnOverlayClick={true}
             style={{
+                overlay: {
+                    backgroundColor: 'rgba(0,0,0,.64)'
+                },
                 content: {
                     display: 'flex',
+                    padding: '15px',
+                    margin: 'auto',
+                    width: '770px',
                     flexDirection: 'column',
                     justifyContent: 'space-betwen',
                 }

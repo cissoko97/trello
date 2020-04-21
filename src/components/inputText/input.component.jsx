@@ -16,7 +16,7 @@ const Inp = styled.input`
 
 const Input = (props) => {
 
-    return <Inp autoFocus autoComplete='off' placeholder={props.placeholder} name={props.name} onChange={(e) => props.change(e)}></Inp>
+    return <Inp autoFocus autoComplete='off' type='text' placeholder={props.placeholder} name={props.name} onChange={(e) => props.change(e)}></Inp>
 }
 
 export default Input;

@@ -7,6 +7,8 @@ import TextArea from "../textArea/textArea.component";
 import * as routes from '../../utils/apiRoute';
 import Button from "../button/button.component";
 import axios from "axios";
+import { faUserAlt, faTag, faCheckSquare, faStopwatch20, faPaperclip, faImage } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class CardItem extends Component {
     constructor(props) {
@@ -56,10 +58,34 @@ class CardItem extends Component {
                     {/* <MyModal isOpen={this.state.showModal} data={this.props.task.taskName} hideModal={this.toggleModal} /> */}
                 </div>
                 <MyModal isOpen={this.state.showModal} data={this.props.task} hideModal={this.toggleModal} >
-                    <p>
-                        <span>Description</span>
-                        <TextArea onChange={this.textAreaOnChange} name="description" placeholder="description" value={this.state.description}></TextArea>
-                    </p>
+                    <div className="modal__body">
+                        <div className="information">
+                            <span>Description</span>
+                            <TextArea onChange={this.textAreaOnChange} name="description" placeholder="description" value={this.state.description}></TextArea>
+                        </div>
+                        <div className="action">
+                            <h3>AJOUTER A LA CARTE</h3>
+                            <Button font="14px" w={'100%'} raduis="3px" back='rgba(0,0,0,.08)' hover="rgba(0,0,0,.16)" onClick={(e) => console.log()} >
+                                <FontAwesomeIcon icon={faUserAlt} /> Membres
+                            </Button>
+                            <Button font="14px" w={'100%'} raduis="3px" back='rgba(0,0,0,.08)' hover="rgba(0,0,0,.16)" onClick={(e) => console.log()} >
+                                <FontAwesomeIcon icon={faTag} /> étiquettes
+                            </Button>
+                            <Button font="14px" w={'100%'} raduis="3px" back='rgba(0,0,0,.08)' hover="rgba(0,0,0,.16)" onClick={(e) => console.log()} >
+                                <FontAwesomeIcon icon={faCheckSquare} /> CheckList
+                            </Button>
+                            <Button font="14px" w={'100%'} raduis="3px" back='rgba(0,0,0,.08)' hover="rgba(0,0,0,.16)" onClick={(e) => console.log()} >
+                                <FontAwesomeIcon icon={faStopwatch20} /> Date Limite
+                            </Button>
+                            <Button font="14px" w={'100%'} raduis="3px" back='rgba(0,0,0,.08)' hover="rgba(0,0,0,.16)" onClick={(e) => console.log()} >
+                                <FontAwesomeIcon icon={faPaperclip} /> Pièce jointe
+                            </Button>
+                            <Button font="14px" w={'100%'} raduis="3px" back='rgba(0,0,0,.08)' hover="rgba(0,0,0,.16)" onClick={(e) => console.log()} >
+                                <FontAwesomeIcon icon={faImage} /> Cover paper
+                            </Button>
+                        </div>
+                    </div>
+
                     {/* <p>
                         <span>Etiquettes</span>
                         {tickets}
@@ -79,7 +105,7 @@ class CardItem extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         // let maxIndex = this.props.data.tasks ? this.props.data.tasks.length : 0;
         // nextState.maxIndex = maxIndex;
-        return nextProps == this.props;
+        return nextProps === this.props;
     }
 
     toggleModal = () => {
@@ -121,8 +147,8 @@ class CardItem extends Component {
     }
 
     deleteTask = (parentIndex, index) => {
-        axios.
-            delete(`${routes.tasks}/${this.props.task.id}`)
+        axios
+            .delete(`${routes.tasks}/${this.props.task.id}`)
             .then((res) => {
                 console.log(res)
                 this.props.deleteTask(parentIndex, index);
