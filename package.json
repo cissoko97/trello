@@ -2,7 +2,7 @@
   "name": "kola-trello",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://cissoko97.github.io/trello-react",
+  "homepage": "https://cissoko97.github.io/trello_React",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
@@ -27,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
